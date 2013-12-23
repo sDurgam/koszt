@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/storeNametxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="abc" />
+
+    <Spinner
+        android:id="@+id/categoriesSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:prompt="@string/prompt_spinner"
+        android:layout_below="@+id/storeNametxt"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:id="@+id/addStoreBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/categoriesSpinner"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="49dp"
+        android:text="Add Store" />
+
+</RelativeLayout>

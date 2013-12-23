@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">S_Expense Manager</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="prompt_spinner">Select Category</string>
+    <string name="choose_file">Please choose a file</string>
+    
+
+</resources>

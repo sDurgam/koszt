@@ -1,0 +1,21 @@
+# view AndroidManifest.xml #generated:41
+-keep class com.example.Graph.DisplayChartsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:42
+-keep class com.example.Graph.LineChartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
+-keep class com.example.Graph.SGraphActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:36
+-keep class com.example.s_expensemanager.AddStoresActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:28
+-keep class com.example.s_expensemanager.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:38
+-keep class com.example.s_expensemanager.ProcessTransactionsFileActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class org.achartengine.GraphicalActivity { <init>(...); }
+
