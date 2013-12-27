@@ -34,17 +34,17 @@ public class Stores {
 	}
 	
 	//Get existing stores from DB
-	public ArrayList<Stores> GetExistingStoresDB(SQLiteDBHelper sqlHelper, ArrayList<String> storeNames)
+	public ArrayList<Stores> GetExistingStoresDB(SQLiteDBHelper sqlHelper, String[] storeNames)
 	{
 		ArrayList<Stores> stores = new ArrayList<Stores>();
 		Stores store;
 		int catCnt;
-		String[] storeCol = { SQLiteDBHelper.STORE_NAME, SQLiteDBHelper.STORE_CATEGORY };
-		String whereClause = SQLiteDBHelper.STORE_NAME + " IN (" + Helper.makePlaceholders(storeNames.size(), storeNames) + ")";
+		String query = "SELECT * FROM " + SQLiteDBHelper.TABLE_STORES  + " WHERE name IN (" + Helper.makePlaceholders(storeNames.length) + ")";
+		//String[] storeCol = { SQLiteDBHelper.STORE_NAME, SQLiteDBHelper.STORE_CATEGORY };
+		//String whereClause = SQLiteDBHelper.STORE_NAME + " IN (" + Helper.makePlaceholders(storeNames.length) + ")";
 		SQLiteDatabase dbReader = sqlHelper.getReadableDatabase();
-		
-		//String whereClause = SQLiteDBHelper.EXPENSELIST_JAN + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_FEB + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_MAR + "!= 0" + "  OR " + SQLiteDBHelper.EXPENSELIST_APR + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_MAY + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_JUN + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_JUL + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_AUG + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_SEP + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_OCT + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_NOV + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_DEC + "!= 0";
-		Cursor getStoresCursor = dbReader.query(SQLiteDBHelper.TABLE_STORES, storeCol, whereClause, null, null, null, null, null);
+		//Cursor getStoresCursor = dbReader.query(SQLiteDBHelper.TABLE_STORES, storeCol, whereClause, null, null, null, null, null);
+		Cursor getStoresCursor = dbReader.rawQuery(query, storeNames);
 		catCnt = getStoresCursor.getCount();
 		if(catCnt != 0)
 		{
@@ -54,6 +54,7 @@ public class Stores {
 				store = new Stores();
 				store.set_name( getStoresCursor.getString(0));
 				store.set_category( getStoresCursor.getString(1));
+				stores.add(store);
 			}while(getStoresCursor.moveToNext());
 		}
 		getStoresCursor.close();

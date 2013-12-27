@@ -156,16 +156,16 @@ public class ProcessTransactionsFileActivity extends Activity implements OnClick
 				}
 			}			
 		}
-	//	GetExistingStoresFromDB(storeNamesList.toArray(new String[storeNamesList.size()]));
-		GetExistingStoresFromDB(storeNamesList);
+		GetExistingStoresFromDB(storeNamesList.toArray(new String[storeNamesList.size()]));
+	//	GetExistingStoresFromDB(storeNamesList);
 		GetNewStores();
 		RetrieveStoreCatDB();
 	}
 	
 	///get existing stores from DB and populate new stores array
-	protected void GetExistingStoresFromDB(ArrayList<String> storeNamesList)
+	protected void GetExistingStoresFromDB(String[] storeNamesArray)
 	{
-		dbStoresList = storesObj.GetExistingStoresDB(sqlHelper, storeNamesList);
+		dbStoresList = storesObj.GetExistingStoresDB(sqlHelper, storeNamesArray);
 		for(Stores store : dbStoresList)
 		{
 			existingStores.add(store.get_name());

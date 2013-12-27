@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.96"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/donutBtn"
+            android:layout_width="87dp"
+            android:layout_height="34dp"
+            android:text="Donut" />
+
+        <Button
+            android:id="@+id/pieBtn"
+            android:layout_width="88dp"
+            android:layout_height="32dp"
+            android:text="Pie" />
+
+        <Button
+            android:id="@+id/bubbleBtn"
+            android:layout_width="93dp"
+            android:layout_height="34dp"
+            android:text="Bubble" />
+
+        <Button
+            android:id="@+id/lineBtn"
+            android:layout_width="89dp"
+            android:layout_height="34dp"
+            android:text="Line" />
+
+        <Button
+            android:id="@+id/barBtn"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
+            android:text="Bar" />
+
+        <Button
+            android:id="@+id/cubicBtn"
+            android:layout_width="87dp"
+            android:layout_height="32dp"
+            android:text="Cubic" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/displayFragment"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="2.12" >
+    </FrameLayout>
+
+</LinearLayout>
