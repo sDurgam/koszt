@@ -36,7 +36,7 @@ public class FragmentMonthActivity extends Fragment implements OnItemSelectedLis
 			Bundle savedInstanceState) 
 	{
 		option = getArguments().getInt("chart");
-		View view = inflater.inflate(R.layout.fragment_activity, container, false);
+		View view = inflater.inflate(R.layout.fragment_monthlyactivity, container, false);
 		ll = (LinearLayout) view.findViewById(R.id.ll);
 		spinnerMonths = (Spinner) view.findViewById(R.id.spinnerMonths);
 		spinnerMonths.setOnItemSelectedListener(this);
