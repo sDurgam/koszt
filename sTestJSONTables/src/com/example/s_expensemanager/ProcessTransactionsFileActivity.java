@@ -25,7 +25,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.Graph.DisplayChartsActivity;
 import com.example.s_expensemanager.R;
 
 
@@ -61,7 +60,8 @@ public class ProcessTransactionsFileActivity extends Activity implements OnClick
 		storesObj = new Stores();
 		lines = new String[this.getIntent().getStringArrayExtra("stores").length];
 		lines = this.getIntent().getStringArrayExtra("stores");
-		try {
+		try
+		{
 			ReadFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -199,10 +199,10 @@ public class ProcessTransactionsFileActivity extends Activity implements OnClick
 		else
 		{
 			transcationsListView.setVisibility(View.INVISIBLE);
-			//	addStoreToDBBtn.setVisibility(View.INVISIBLE);
+			addStoreToDBBtn.setVisibility(View.INVISIBLE);
 			chooseCatDisp.setVisibility(View.INVISIBLE);
 			//if no new stores then update db
-			
+			DisplayChartsIntent();
 		}
 	}
 
@@ -291,15 +291,14 @@ public class ProcessTransactionsFileActivity extends Activity implements OnClick
 				stores.add(value);
 			}
 			storesObj.UpdateStoreCategories(sqlHelper, stores);
-			//			PieGraph pie = new PieGraph();
-			//			Double[] values = new Double[5];
-			//			String[] categories = {"Grocery Stores", "Restaurants", "Theatres", "Pharmacies", "Others"};
-			//			values = GetExpenseValues(categories);
-			//			Intent pieIntent = pie.getIntent(this, categories, values);
-			//			startActivity(pieIntent);
-			Intent in = new Intent(this, DisplayChartsActivity.class);
-			startActivity(in);
+			DisplayChartsIntent();
 		}
+	}
+	
+	private void DisplayChartsIntent()
+	{
+		Intent in = new Intent(this, DisplayCharts.class);
+		startActivity(in);
 	}
 }
 

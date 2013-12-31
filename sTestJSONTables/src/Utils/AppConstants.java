@@ -76,6 +76,61 @@ public class AppConstants {
 		return null;
 	}
 	
+	public static String GetMonthFromInteger(int monNum) 
+	{
+		
+		if(monNum == 1)
+		{
+			return Utils.AppConstants.jan_month;
+		}
+		else if(monNum == 2)
+		{
+			return Utils.AppConstants.feb_month;
+		}
+		if(monNum == 3)
+		{
+			return Utils.AppConstants.mar_month;
+		}
+		else if(monNum == 4)
+		{
+			return Utils.AppConstants.apr_month;
+		}
+		if(monNum == 5)
+		{
+			return Utils.AppConstants.may_month;
+		}
+		else if(monNum == 6)
+		{
+			return Utils.AppConstants.jun_month;
+		}
+		if(monNum == 7)
+		{
+			return Utils.AppConstants.jul_month;
+		}
+		else if(monNum == 8)
+		{
+			return Utils.AppConstants.aug_month;
+		}
+		if(monNum == 9)
+		{
+			return Utils.AppConstants.sep_month;
+		}
+		else if(monNum == 10)
+		{
+			return Utils.AppConstants.oct_month;
+		}
+		if(monNum == 11)
+		{
+			return Utils.AppConstants.nov_month;
+		}
+		else if(monNum == 12)
+		{
+			return Utils.AppConstants.dec_month;
+		}
+		return null;
+	}
+	
+	
 	
 	/* Google Drive Constants */
 	public static final String driveScope = "https://www.googleapis.com/auth/drive";
@@ -94,8 +149,9 @@ public class AppConstants {
 	public static final String[] xmonths = {"jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"};
 	public static final String[] cols = {SQLiteDBHelper.EXPENSELIST_CATEGORY, SQLiteDBHelper.EXPENSELIST_JAN, SQLiteDBHelper.EXPENSELIST_FEB, SQLiteDBHelper.EXPENSELIST_MAR, SQLiteDBHelper.EXPENSELIST_APR, SQLiteDBHelper.EXPENSELIST_MAY, SQLiteDBHelper.EXPENSELIST_JUN, SQLiteDBHelper.EXPENSELIST_JUL, SQLiteDBHelper.EXPENSELIST_AUG, SQLiteDBHelper.EXPENSELIST_SEP, SQLiteDBHelper.EXPENSELIST_OCT, SQLiteDBHelper.EXPENSELIST_NOV, SQLiteDBHelper.EXPENSELIST_DEC};
 	public static final int x_axis[] = {1,2,3,4,5,6,7,8,9,10,11,12};
-	public static final int[] COLORS = {Color.BLUE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA, Color.TRANSPARENT};
-	public static final PointStyle[] pointStyles = {PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.POINT, PointStyle.SQUARE, PointStyle.TRIANGLE};
+	public static final int[] COLORSARR = {Color.parseColor("#F2846B"),
+        Color.parseColor("#A01115"), Color.parseColor("#741E1E"), Color.BLUE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.DKGRAY, Color.GRAY, Color.LTGRAY, Color.MAGENTA, Color.TRANSPARENT};
+	public static final PointStyle[] pointStylesArray = {PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.POINT, PointStyle.SQUARE, PointStyle.TRIANGLE};
 	/*end chart constants */
 	public static final int REQUEST_ACCOUNT_PICKER = 1;
 	public static final int REQUEST_AUTHORIZATION = 2;

@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="prompt_spinner">Select Category</string>
     <string name="choose_file">Please choose a file</string>
+    <string name="months">select month</string>
     
 
 </resources>

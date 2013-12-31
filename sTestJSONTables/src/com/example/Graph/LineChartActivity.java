@@ -3,7 +3,6 @@ package com.example.Graph;
 import java.util.ArrayList;
 
 import org.achartengine.ChartFactory;
-import org.achartengine.chart.BarChart;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
@@ -12,6 +11,7 @@ import org.achartengine.renderer.XYSeriesRenderer;
 import ORClasses.Categories;
 import ORClasses.ExpenseList2013;
 import Utils.AppConstants;
+import Utils.Helper;
 import Utils.SQLiteDBHelper;
 import android.app.Activity;
 import android.content.Intent;
@@ -28,18 +28,18 @@ public class LineChartActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		catObj = new Categories();
 		sqlHelper = new SQLiteDBHelper(this);
-		String[] categories = catObj.GetExistingCategoriesDB(sqlHelper);
+	//	String[] categories = catObj.GetExistingCategoriesDB(sqlHelper);
 		ArrayList<ExpenseList2013> expenses2013List = catObj.GetCategoryExpenses(sqlHelper, sqlHelper.TABLE_EXPENSELIST2013, AppConstants.cols);
 		sqlHelper.close();
-		Intent lineIntent = getIntent(categories, expenses2013List);
-		startActivity(lineIntent);
+		//Intent lineIntent = getIntent(categories, expenses2013List);
+		//startActivity(lineIntent);
 	}
 
 	public Intent getIntent(String[] zcategories, ArrayList<ExpenseList2013> expensesList)
 	{
 
-		int colorsLength = AppConstants.COLORS.length;
-		int pointStylesLength = AppConstants.pointStyles.length;
+		int colorsLength = AppConstants.COLORSARR.length;
+		int pointStylesLength = AppConstants.pointStylesArray.length;
 		int colorIndex = 0;
 		int pointStylesIndex = 0;
 		boolean isExistingCategory;
@@ -78,14 +78,14 @@ public class LineChartActivity extends Activity {
 				XYSeriesRenderer renderer = new XYSeriesRenderer();
 				if(colorIndex == colorsLength - 1)
 				{
-					colorIndex = 0;
+					colorIndex = Helper.ResetColorIndex();
 				}
 				if(pointStylesIndex == pointStylesLength - 1)
 				{
-					pointStylesIndex = 0;
+					pointStylesIndex = Helper.ResetPointStylesIndex();
 				}
-				renderer.setColor(AppConstants.COLORS[colorIndex++]);
-				renderer.setPointStyle(AppConstants.pointStyles[pointStylesIndex++]);
+				renderer.setColor(AppConstants.COLORSARR[colorIndex++]);
+				renderer.setPointStyle(AppConstants.pointStylesArray[pointStylesIndex++]);
 				renderer.setFillPoints(true);
 				renderer.setLineWidth(2);
 				renderer.setDisplayChartValues(true);
@@ -94,10 +94,10 @@ public class LineChartActivity extends Activity {
 		}
 		Intent i = ChartFactory.getLineChartIntent(this.getApplicationContext(), dataset, multiRenderer);
 		
-		//Intent i = ChartFactory.getBarChartIntent(this.getApplicationContext(), dataset, multiRenderer, BarChart.Type.DEFAULT, "Expense Graph");
-		
 		return i;	
 	}
+	
+	
 
 	private boolean IsCategory(String[] zcategories, String category)
 	{

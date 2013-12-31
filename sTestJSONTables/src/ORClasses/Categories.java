@@ -40,8 +40,10 @@ public class Categories {
 		SQLiteDatabase dbWriter = sqlHelper.getWritableDatabase();
 		ArrayList<ExpenseList2013> expenseList2013List = new ArrayList<ExpenseList2013>();
 		ExpenseList2013 expense;
+		//String selection = SQLiteDBHelper.EXPENSELIST_JAN + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_FEB + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_MAR + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_APR + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_MAY + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_JUN + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_JUL + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_AUG + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_SEP + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_OCT + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_NOV + " > ?" + " OR " + SQLiteDBHelper.EXPENSELIST_DEC + " > ?";
 		//select column_name, category, sep from expenselist where column_name = sep
-		Cursor CategoryValuesCursor = dbWriter.query(tabName, cols, null, null, null, null, null, null);
+		String whereClause = SQLiteDBHelper.EXPENSELIST_JAN + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_FEB + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_MAR + "!= 0" + "  OR " + SQLiteDBHelper.EXPENSELIST_APR + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_MAY + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_JUN + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_JUL + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_AUG + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_SEP + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_OCT + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_NOV + "!= 0" + " OR " + SQLiteDBHelper.EXPENSELIST_DEC + "!= 0";
+		Cursor CategoryValuesCursor = dbWriter.query(tabName, cols, whereClause, null, null, null, null, null);
 		int catCount = CategoryValuesCursor.getCount();
 		if(catCount != 0)
 		{
@@ -93,5 +95,6 @@ public class Categories {
 		dbReader.close();
 		return categories;
 	}
+
 
 }

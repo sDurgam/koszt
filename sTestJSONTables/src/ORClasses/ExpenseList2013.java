@@ -1,5 +1,8 @@
 package ORClasses;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 import Utils.SQLiteDBHelper;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -261,6 +264,28 @@ public class ExpenseList2013 {
 				return Double.valueOf(getExpenseListCatAmtCursor.getString(0));
 			}
 			return 0.0;
+		}
+		
+		
+		public Hashtable<String, Double> GetMontlyExpenses(
+				SQLiteDBHelper sqlHelper, String[] cols, String month) {
+			// TODO Auto-generated method stub
+			Hashtable<String, Double> monthExpenses = new Hashtable<String, Double>();
+			SQLiteDatabase dbReader = sqlHelper.getReadableDatabase();
+			String whereCaluse = month + " > " + 0.0;
+			Cursor getExpenseListCatAmtCursor =  dbReader.query(sqlHelper.TABLE_EXPENSELIST2013, cols, month + " > ?", new String[] {"0.0"}, null, null, null);
+			int catCount = getExpenseListCatAmtCursor.getCount();
+			if(catCount != 0)
+			{
+				getExpenseListCatAmtCursor.moveToFirst();
+				do
+				{
+					monthExpenses.put(getExpenseListCatAmtCursor.getString(0), getExpenseListCatAmtCursor.getDouble(1));
+				}while(getExpenseListCatAmtCursor.moveToNext());
+			}
+			getExpenseListCatAmtCursor.close();
+			dbReader.close();
+			return monthExpenses;
 		}
 
 }

@@ -2,8 +2,6 @@ package com.example.s_expensemanager;
 
 import java.util.ArrayList;
 
-import com.example.s_expensemanager.R;
-
 import Utils.SQLiteDBHelper;
 import android.app.Activity;
 import android.content.ContentValues;

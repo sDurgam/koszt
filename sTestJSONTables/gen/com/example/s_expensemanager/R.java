@@ -8,6 +8,9 @@
 package com.example.s_expensemanager;
 
 public final class R {
+    public static final class array {
+        public static final int months_array=0x7f0a0000;
+    }
     public static final class attr {
         /** 
     The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
@@ -208,24 +211,31 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001c;
     }
     public static final class id {
-        public static final int action_settings=0x7f060011;
+        public static final int action_settings=0x7f060018;
         public static final int addStoreBtn=0x7f060008;
-        public static final int addStoreToDB=0x7f06000f;
-        public static final int bubbleGraphBtn=0x7f06000b;
+        public static final int addStoreToDB=0x7f060013;
+        public static final int barBtn=0x7f06000d;
+        public static final int bubbleBtn=0x7f06000b;
         public static final int categoriesSpinner=0x7f060007;
-        public static final int chooseCatDisp=0x7f06000d;
+        public static final int chooseCatDisp=0x7f060011;
+        public static final int cubicBtn=0x7f06000e;
+        public static final int displayFragment=0x7f06000f;
+        public static final int donutBtn=0x7f060009;
         public static final int hybrid=0x7f060004;
-        public static final int lineGraphBtn=0x7f060009;
+        public static final int lineBtn=0x7f06000c;
         public static final int listGDriveFiles=0x7f060005;
-        public static final int listViewTransactions=0x7f06000e;
+        public static final int listViewTransactions=0x7f060012;
+        public static final int ll=0x7f060014;
+        public static final int llyear=0x7f060016;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int pieGraphBtn=0x7f06000a;
+        public static final int pieBtn=0x7f06000a;
         public static final int satellite=0x7f060002;
-        public static final int storeName=0x7f060010;
+        public static final int spinnerMonths=0x7f060015;
+        public static final int storeName=0x7f060017;
         public static final int storeNametxt=0x7f060006;
         public static final int terrain=0x7f060003;
-        public static final int transactionsLinearLayout=0x7f06000c;
+        public static final int transactionsLinearLayout=0x7f060010;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -233,15 +243,18 @@ containing a value of this type.
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int addstores=0x7f030001;
-        public static final int displaycharts=0x7f030002;
+        public static final int display_charts=0x7f030002;
         public static final int displaytransactions=0x7f030003;
-        public static final int linechart=0x7f030004;
-        public static final int piechart=0x7f030005;
-        public static final int row_grid=0x7f030006;
-        public static final int sgraph=0x7f030007;
+        public static final int fragment_monthlyactivity=0x7f030004;
+        public static final int fragment_yearactivity=0x7f030005;
+        public static final int linechart=0x7f030006;
+        public static final int months=0x7f030007;
+        public static final int piechart=0x7f030008;
+        public static final int row_grid=0x7f030009;
+        public static final int sgraph=0x7f03000a;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class raw {
         public static final int categoriesjson=0x7f040000;
@@ -345,6 +358,7 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f070013;
         public static final int hello_world=0x7f07001c;
+        public static final int months=0x7f07001f;
         public static final int prompt_spinner=0x7f07001d;
     }
     public static final class style {
@@ -369,11 +383,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a0000;
+        public static final int AppBaseTheme=0x7f0b0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0001;
+        public static final int AppTheme=0x7f0b0001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
